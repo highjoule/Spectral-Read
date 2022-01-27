@@ -97,13 +97,14 @@ plt.imshow(img[:,:,230], cmap='nipy_spectral')
 
 
 
-    <matplotlib.image.AxesImage at 0x18116da4f70>
+   
 
 
 
 
     
-![png](output_4_1.png)
+![](https://github.com/highjoule/Spectral-Read/images/output_4_1.png)
+
     
 
 
