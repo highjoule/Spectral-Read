@@ -275,12 +275,14 @@ np.nanmin(ndvi_map),np.nanmax(ndvi_map)
 
 
 
+
+
+# Constructuion of dataframe that contains the name of band and the wavelenght in nanometers
+
 ```python
 img.metadata.keys()
 ```
 
-
-# Constructuion of dataframe that contains the name of band and the wavelenght in nanometers
 
     dict_keys(['description', 'samples', 'lines', 'bands', 'data type', 'interleave', 'file type', 'header offset', 'byte order', 'map info', 'coordinate system string', 'band names', 'wavelength', 'fwhm', 'wavelength units', 'data ignore value', 'acquisition time'])
 
@@ -298,19 +300,7 @@ info
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -379,19 +369,7 @@ info[50:100]
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
