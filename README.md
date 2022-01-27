@@ -136,14 +136,8 @@ plt.plot(x[432,307,:])
 
 
 
+![](https://github.com/highjoule/Spectral-Read/blob/main/images/output_7_1.png)   
 
-    [<matplotlib.lines.Line2D at 0x18116e9a820>]
-
-
-
-
-    
-![png](output_7_1.png)
     
 
 
@@ -157,13 +151,13 @@ plt.imshow(ds, cmap='nipy_spectral')
 
 
 
-    <matplotlib.image.AxesImage at 0x18116efb940>
+ 
 
 
 
+![](https://github.com/highjoule/Spectral-Read/blob/main/images/output_8_1.png)   
 
-    
-![png](output_8_1.png)
+
     
 
 
@@ -215,8 +209,8 @@ print("clustered/original",wv)
 ```
 
 
+![](https://github.com/highjoule/Spectral-Read/blob/main/images/output_13_0.png)   
     
-![png](output_13_0.png)
     
 
 
@@ -257,8 +251,8 @@ print(a,b,r2_score(x[a,b,:],ldc[a,b,:]))
 ```
 
 
+![](https://github.com/highjoule/Spectral-Read/blob/main/images/output_16_0.png)   
     
-![png](output_16_0.png)
     
 
 
@@ -295,13 +289,13 @@ plt.colorbar()
 
 
 
-    <matplotlib.colorbar.Colorbar at 0x1816e9d9ac0>
+   
 
 
 
 
-    
-![png](output_18_1.png)
+ ![](https://github.com/highjoule/Spectral-Read/blob/main/images/output_18_1.png)   
+   
     
 
 
