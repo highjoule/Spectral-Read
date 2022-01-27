@@ -103,7 +103,7 @@ plt.imshow(img[:,:,230], cmap='nipy_spectral')
 
 
     
-![](https://github.com/highjoule/Spectral-Read/images/output_4_1.png)
+![](https://github.com/highjoule/Spectral-Read/blob/main/images/output_4_1.png)
 
     
 
