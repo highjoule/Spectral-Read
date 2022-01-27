@@ -34,6 +34,7 @@ img
 pc = principal_components(img.load())
 ```
 
+# Principal components
 
 ```python
 xdata = pc.transform(img)
@@ -61,30 +62,7 @@ xdata
 
 
 
-```python
-img[0,0,:]
-```
-
-
-
-
-    array([[[0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
-             0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]]], dtype=float32)
-
-
+# Read of one of the bands of this tile
 
 
 ```python
@@ -126,7 +104,7 @@ x.shape
     (1181, 1230, 234)
 
 
-
+# Spectral signature of a random pixel
 
 ```python
 import matplotlib.pyplot as plt
@@ -158,7 +136,7 @@ plt.imshow(ds, cmap='nipy_spectral')
 ![](https://github.com/highjoule/Spectral-Read/blob/main/images/output_8_1.png)   
 
 
-    
+# Preparation of data to use sklearn.cluster    
 
 
 
@@ -174,6 +152,7 @@ kmeans = KMeans(n_clusters=5, random_state=0).fit(resh)
 clustered = kmeans.cluster_centers_[kmeans.labels_]
 ```
 
+# Store of the cluster and reshape of the hypercube with 5 clusters
 
 ```python
 clus = clustered.reshape(x.shape[0],img.shape[1],img.shape[2])
@@ -186,7 +165,7 @@ clus[:,:,149].shape
     (1181, 1230)
 
 
-
+# With the use of pickle the cluster weights are stored locally
 
 ```python
 import pickle
@@ -195,6 +174,7 @@ savedfile='model.sav'
 pickle.dump(clustered,open(savedfile,'wb'))
 ```
 
+# Comparison of original and clustered images
 
 ```python
 import random
@@ -216,7 +196,7 @@ print("clustered/original",wv)
 
     clustered/original 35
     
-
+# The weights of the clusters are loaded again in order to use again and save time
 
 ```python
 savedfile = 'model.sav'
@@ -229,7 +209,7 @@ loadclus = loadcluster.reshape(x.shape[0],img.shape[1],img.shape[2])
 loadclus[loadclus<0.001]=0.0
 ldc=np.nan_to_num(loadclus,nan=0.0)
 ```
-
+# Comparison of the spectral signature of a random pixel, additionally correlation coefficient is displyed
 
 ```python
 import matplotlib.pyplot as plt
@@ -259,24 +239,7 @@ print(a,b,r2_score(x[a,b,:],ldc[a,b,:]))
     1052 385 1.0
     
 
-
-```python
-ndvi_map
-```
-
-
-
-
-    array([[nan, nan, nan, ..., nan, nan, nan],
-           [nan, nan, nan, ..., nan, nan, nan],
-           [nan, nan, nan, ..., nan, nan, nan],
-           ...,
-           [nan, nan, nan, ..., nan, nan, nan],
-           [nan, nan, nan, ..., nan, nan, nan],
-           [nan, nan, nan, ..., nan, nan, nan]])
-
-
-
+# Using spectra, the NDVI is calculated and shower below
 
 ```python
 
@@ -317,7 +280,7 @@ img.metadata.keys()
 ```
 
 
-
+# Constructuion of dataframe that contains the name of band and the wavelenght in nanometers
 
     dict_keys(['description', 'samples', 'lines', 'bands', 'data type', 'interleave', 'file type', 'header offset', 'byte order', 'map info', 'coordinate system string', 'band names', 'wavelength', 'fwhm', 'wavelength units', 'data ignore value', 'acquisition time'])
 
